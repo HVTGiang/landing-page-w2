@@ -1,0 +1,170 @@
+/*
+    Navigation in the web
+*/
+
+@use "color" as *;
+
+#nav {
+  flex: 0 218px;
+  min-width: 218px;
+  background-color: $purple49;
+  transform: translateX(0);
+  transition: all ease 0.2s;
+
+  @at-root .modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: auto;
+    background-color: rgb(32 32 32 / 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transform: translateX(0);
+    transition: all linear 0.25s;
+  }
+
+  @at-root .modal-background.hide {
+    z-index: 999;
+    opacity: 0;
+    transform: translateX(-100%);
+    backdrop-filter: blur(0);
+
+  }
+
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    z-index: 9999;
+    height: auto;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 218px;
+
+    &.hide {
+      transform: translateX(-100%);
+    }
+  }
+
+  #logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 44px 0 111px 44px;
+
+    img {
+      width: 38px;
+      object-fit: cover;
+      margin-right: 13px;
+    }
+    span {
+      font: {
+        weight: 600;
+        size: 2.4rem;
+      }
+      color: $white;
+    }
+  }
+
+  .menu {
+    list-style-type: none;
+    padding-left: 39px;
+
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-basis: 24px;
+      margin-right: 14px;
+      width: 24px;
+      height: 24px;
+
+      svg {
+        opacity: 0.8;
+      }
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: $white;
+      margin-bottom: 30px;
+      position: relative;
+
+      font: {
+        weight: 600;
+        size: 1.6rem;
+      }
+
+      span {
+        opacity: 0.7;
+      }
+
+      svg,
+      span {
+        transition: all linear 0.3s;
+      }
+
+      path {
+        fill: $white;
+      }
+
+      &--select {
+        svg,
+        span {
+          opacity: 1;
+        }
+
+        color: $orange;
+        path {
+          fill: $orange;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          padding: 24px 41px;
+          background-image: linear-gradient(
+            to right,
+            $orange,
+            $orange,
+            rgba(255, 255, 255, 0)
+          );
+          position: absolute;
+          left: -44px;
+          top: -50%;
+          opacity: 20%;
+        }
+      }
+
+      &:hover {
+        svg,
+        span {
+          opacity: 1;
+        }
+        cursor: pointer;
+
+        &::before {
+          content: "";
+          display: block;
+          padding: 24px 41px;
+          background-image: linear-gradient(
+            to right,
+            $white,
+            $white,
+            rgba(255, 255, 255, 0)
+          );
+          position: absolute;
+          left: -44px;
+          top: -50%;
+          opacity: 20%;
+        }
+      }
+    }
+  }
+}

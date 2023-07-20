@@ -1,0 +1,69 @@
+@use "color" as *;
+@use "user_image" as *;
+
+.container {
+  margin-top: 30px;
+  padding: 24px 0;
+  background-color: $white;
+  border-radius: 10px;
+  display: flex;
+
+  .profile {
+    flex: 0 340px;
+    min-width: 340px;
+    max-width: 400px;
+    color: $purpleA3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    border-right: 1px solid $purpleA3;
+    &__image {
+      @include userImage() {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    &__name {
+      margin-top: 10px;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    &__role {
+      margin-top: 5px;
+      font-size: 1.6rem;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+    &__up-image {
+      margin-top: 40px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid $purpleA3;
+    }
+
+    &__up-image:hover {
+      background-color: $grey;
+    }
+    &__up-image:active {
+      background-color: $grey200;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    .profile {
+      max-width: none;
+      border-right: none;
+    }
+
+    .profile__up-image {
+      margin-top: 20px;
+    }
+  }
+
+  @import "profile-form";
+}

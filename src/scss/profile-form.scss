@@ -1,0 +1,224 @@
+@use "color" as *;
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 116px 16px 61px;
+  margin-bottom: 100px;
+
+  &__action {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    font-weight: 600;
+    align-items: flex-start;
+  }
+
+  &__cancel,
+  &__save {
+    border-radius: 8px;
+    flex: 0;
+  }
+
+  &__cancel {
+    color: $purpleA3;
+    border: 1px solid $purpleA3;
+    padding: 10.5px 39px;
+    cursor: pointer;
+  }
+
+  &__cancel:hover {
+    background-color: $grey;
+  }
+  &__cancel:active {
+    background-color: $grey200;
+  }
+
+  &__save {
+    background-color: $grey300;
+    color: $white;
+    margin-left: 12px;
+    padding: 11px 47px;
+    cursor: pointer;
+    background-color: $purpleA3;
+  }
+
+  &__save:hover {
+    background-color: $purpleA3;
+  }
+
+  &__save:active {
+    background-color: $purple49;
+  }
+
+  &__container {
+    width: 100%;
+    margin-top: 33px;
+  }
+
+  &__input-group {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    margin-bottom: 24px;
+
+    .form__input {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+
+      &.invalid {
+        label {
+          color: $orange;
+        }
+        .form__box {
+          border: 2px solid $orange;
+        }
+
+        .input__error {
+          display: block;
+        }
+      }
+
+      .input__error {
+        color: $orange;
+        font-size: 1.3rem;
+        padding-top: 4px;
+        position: absolute;
+        bottom: -25%;
+        right: 0;
+        display: none;
+      }
+
+      label {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $grey400;
+      }
+
+      &.radio {
+        .radio-container {
+          display: flex;
+          margin-top: 16px;
+          gap: 120px;
+          label {
+            font-weight: 500;
+            display: flex;
+            position: relative;
+            line-height: 24px;
+            padding-left: 12px;
+          }
+          input {
+            display: inline-block;
+            margin-right: 12px;
+            cursor: pointer;
+            opacity: 0;
+          }
+
+          span::after {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 24px;
+            padding: 6px;
+            background-color: $white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #89939e;
+            border-radius: 50%;
+            box-sizing: border-box;
+          }
+
+          span::before {
+            display: block;
+            content: "";
+            min-width: 12px;
+            height: 12px;
+            box-sizing: border-box;
+            background-color: $purpleA3;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            border-radius: 100%;
+            z-index: 888;
+            transition: all ease 0.2s;
+          }
+
+          input:not(:checked) ~ span::before {
+            opacity: 0;
+            transform: scale(0);
+          }
+          input:checked ~ span::before {
+            opacity: 1;
+            transform: scale(1);
+          }
+          input:checked ~ span::after {
+            border-color: $purpleA3;
+          }
+        }
+      }
+
+      .form__box {
+        margin-top: 12px;
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $grey600;
+        border-radius: 8px;
+        border: 1px solid $grey600;
+      }
+
+      .form__box.birthday {
+        max-width: 312px;
+        position: relative;
+        svg {
+          width: 40px;
+          height: 40px;
+          display: block;
+          position: absolute;
+          right: 15px;
+          bottom: 50%;
+          transform: translateY(50%);
+          padding: 10px 11px;
+          cursor: pointer;
+          overflow: visible;
+        }
+        svg:active,
+        svg:hover {
+          background-color: $grey300;
+          border-radius: 50%;
+        }
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-calendar-picker-indicator {
+          display: none;
+          -webkit-appearance: none;
+        }
+        input {
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: $grey600;
+          border: none;
+          max-width: 86px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 32px 60px;
+    gap: 20px;
+    .form__action {
+      order: 2;
+    }
+  }
+
+  @import "calendar";
+}

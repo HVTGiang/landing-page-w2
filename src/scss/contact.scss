@@ -1,0 +1,197 @@
+@use "color" as *;
+@use "user_image" as *;
+
+.contact {
+  flex: 0 260px;
+  margin-left: 29px;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    margin: 30px;
+    flex: 0;
+  }
+  @media screen and (max-width: 415px) {
+    margin: 20px;
+  }
+
+  .con-extend {
+    background-color: $white;
+    border-radius: 10px;
+    padding: 22px 45px 4px 45px;
+    color: $purple49;
+
+    &__title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 27px;
+    }
+
+    &__list {
+      list-style-type: none;
+
+      .item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &__image {
+          @include userImage(var(--color)) {
+            width: 34px;
+            height: 34px;
+          }
+          margin-right: 15px;
+        }
+
+        &__info {
+        }
+
+        &__name {
+          font-weight: 400;
+          font-size: 1.2rem;
+          margin-bottom: 3px;
+        }
+
+        &__email {
+          font-weight: 400;
+          font-size: 1rem;
+          opacity: 0.5;
+        }
+      }
+    }
+    @media screen and (max-width: 415px) {
+      padding: 20px 30px 10px;
+      .item__image {
+        @include userImage(var(--color)) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .item__name {
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+      .item__email {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .con-active {
+    padding: 25px 20px 0;
+    background-color: $white;
+    border-radius: 10px;
+    margin-top: 30px;
+
+    &__title {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    &__list {
+      margin-top: 20px;
+      list-style-type: none;
+
+      .item {
+        color: $purple49;
+        display: flex;
+        border-bottom: 1px solid #0000000d;
+        padding-bottom: 17px;
+        margin-bottom: 15px;
+        &__image {
+          @include userImage(var(--color)) {
+            width: 34px;
+            height: 34px;
+          }
+          margin-right: 6px;
+          max-width: 34px;
+        }
+        &__info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          line-height: 150%;
+        }
+        &__name {
+          font-size: 1.6rem;
+          font-weight: 400;
+        }
+
+        &__status {
+          font-size: 1.2rem;
+          opacity: 60%;
+          font-weight: 400;
+        }
+        &__time {
+          flex: 1;
+          text-align: right;
+          font-size: 0.8rem;
+          font-weight: 400;
+          opacity: 0.4;
+        }
+
+        &--online,
+        &--busy {
+          .item__image {
+            position: relative;
+          }
+          .item__image::before {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 5px;
+            border: 1px solid $white;
+            background-color: $grey400;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 1px;
+            right: 2px;
+          }
+        }
+
+        &--online {
+          .item__image::before {
+            background-color: #2cc84a;
+          }
+        }
+        &--busy {
+          .item__image::before {
+            background-color: #ff8f6b;
+          }
+        }
+      }
+
+      .item:nth-last-child(1) {
+        border: none;
+      }
+    }
+    @media screen and (max-width: 415px) {
+      margin-top: 20px;
+      padding: 20px 30px 0;
+      .item__image {
+        @include userImage(var(--color)) {
+          width: 50px;
+          height: 50px;
+        }
+        max-width: 50px;
+        margin-right: 15px;
+      }
+      .item--online,
+      .item--busy {
+        .item__image::before {
+          width: 10px;
+          height: 10px;
+          border-width: 2px;
+        }
+      }
+      .item__time {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  @at-root .visitor .con-active {
+    display: none;
+  }
+}

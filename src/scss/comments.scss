@@ -1,0 +1,121 @@
+@use "color" as *;
+@use "user_image" as *;
+
+.comments {
+  margin-top: 16px;
+  transition: all 0.2s linear;
+  transform: scaleY(1);
+  transform-origin: top;
+  overflow: hidden;
+
+  .comment__input {
+    display: flex;
+
+    .user-image {
+      margin-right: 8px;
+
+      @include userImage($orange) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .input-box {
+      flex: 1;
+      position: relative;
+      input {
+        display: block;
+        width: 100%;
+        border: none;
+        background-color: $grey200;
+        border-radius: 8px;
+        padding: 12px 10px 12px 8px;
+
+        &::placeholder {
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: $grey400;
+        }
+      }
+
+      svg {
+        position: absolute;
+        right: 10px;
+        top: 25%;
+      }
+    }
+  }
+
+  .comment {
+    display: flex;
+    margin-top: 16px;
+
+    &__avt {
+      margin-right: 8px;
+      flex: 0 40px;
+      max-width: 40px;
+      @include userImage() {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__box {
+      padding: 10px 8px;
+      background-color: $grey200;
+      border-radius: 8px;
+      color: $grey800;
+      font-size: 1.6rem;
+
+      .comment__name {
+        font-weight: 600;
+      }
+
+      .comment__text {
+        font-weight: 400;
+      }
+    }
+
+    &__react {
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      margin: 4px 0 0 8px;
+
+      p {
+        display: inline-block;
+        margin-right: 16px;
+      }
+    }
+
+    &__public {
+      font-weight: 500;
+    }
+
+    &--short {
+      .comment__content {
+        flex: 0;
+      }
+    }
+  }
+
+  &__more {
+    color: $grey800;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  &--hide {
+    transform: scaleY(0);
+    height: 0;
+    // display: none;
+  }
+}

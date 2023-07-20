@@ -1,0 +1,20 @@
+/*
+    Main content in the edit profile page
+*/
+
+@use "color" as *;
+@use "header";
+@use "info";
+@use "content-edit";
+
+#main {
+  flex: 1;
+  background-color: $grey;
+  padding: 20px 32px 0;
+
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 0px 0;
+  }
+}

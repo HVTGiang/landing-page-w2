@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9e7fe59ea5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./main-profile-edit.css" />
+    <script src="../src/js/main.js" defer></script>
+    <script src="../src/js/calendar.js" defer type="module"></script>
+    <script src="../src/js/validate.js" defer type="module"></script>
+  </head>
+  <body>
+    <div id="root" class="">
+      <!-- NAV SIDE BAR -->
+      <nav id="nav" class="hide">
+        <div id="logo">
+          <img src="./img/logo.png" alt="Logo of 3MM" />
+          <span>3MM</span>
+        </div>
+
+        <!-- MENU -->
+        <ul class="menu">
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="20"
+                height="17"
+                viewBox="0 0 20 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 17V11H12V17H17V9H20L10 0L0 9H3V17H8Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Home</span>
+          </li>
+          <li class="menu__item menu__item--select">
+            <div class="menu__icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z"
+                  fill="#A303A0"
+                />
+              </svg>
+            </div>
+            <span>Profile</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 20L4 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM16 12H4V10H16V12ZM16 9H4V7H16V9ZM16 6H4V4H16V6Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Messages</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="18"
+                height="20"
+                viewBox="0 0 18 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.81 0H13.191C16.28 0 18 1.78 18 4.83V15.16C18 18.26 16.28 20 13.191 20H4.81C1.77 20 0 18.26 0 15.16V4.83C0 1.78 1.77 0 4.81 0ZM5.08 4.66V4.65H8.069C8.5 4.65 8.85 5 8.85 5.429C8.85 5.87 8.5 6.22 8.069 6.22H5.08C4.649 6.22 4.3 5.87 4.3 5.44C4.3 5.01 4.649 4.66 5.08 4.66ZM5.08 10.74H12.92C13.35 10.74 13.7 10.39 13.7 9.96C13.7 9.53 13.35 9.179 12.92 9.179H5.08C4.649 9.179 4.3 9.53 4.3 9.96C4.3 10.39 4.649 10.74 5.08 10.74ZM5.08 15.31H12.92C13.319 15.27 13.62 14.929 13.62 14.53C13.62 14.12 13.319 13.78 12.92 13.74H5.08C4.78 13.71 4.49 13.85 4.33 14.11C4.17 14.36 4.17 14.69 4.33 14.95C4.49 15.2 4.78 15.35 5.08 15.31Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Purchases</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="20"
+                height="19"
+                viewBox="0 0 20 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 4H15.82C15.93 3.69 16 3.35 16 3C16 1.34 14.66 0 13 0C11.95 0 11.04 0.54 10.5 1.35L10 2.02L9.5 1.34C8.96 0.54 8.05 0 7 0C5.34 0 4 1.34 4 3C4 3.35 4.07 3.69 4.18 4H2C0.89 4 0.00999999 4.89 0.00999999 6L0 17C0 18.11 0.89 19 2 19H18C19.11 19 20 18.11 20 17V6C20 4.89 19.11 4 18 4ZM13 2C13.55 2 14 2.45 14 3C14 3.55 13.55 4 13 4C12.45 4 12 3.55 12 3C12 2.45 12.45 2 13 2ZM7 2C7.55 2 8 2.45 8 3C8 3.55 7.55 4 7 4C6.45 4 6 3.55 6 3C6 2.45 6.45 2 7 2ZM18 17H2V15H18V17ZM18 12H2V6H7.08L5 8.83L6.62 10L9 6.76L10 5.4L11 6.76L13.38 10L15 8.83L12.92 6H18V12Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Returns</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="24"
+                height="20"
+                viewBox="0 0 24 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 4H0V9H0.01L0 18C0 19.1 0.9 20 2 20H20V18H2V4ZM22 2H14L12 0H6C4.9 0 4.01 0.9 4.01 2L4 14C4 15.1 4.9 16 6 16H22C23.1 16 24 15.1 24 14V4C24 2.9 23.1 2 22 2ZM7 13L11.5 7L15 11.51L17.5 8.5L21 13H7Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Gallery</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 0H2C0.9 0 0 0.9 0 2V16C0 17.1 0.9 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0ZM6 14H4V7H6V14ZM10 14H8V4H10V14ZM14 14H12V10H14V14Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Analytics</span>
+          </li>
+          <li class="menu__item">
+            <div class="menu__icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M18.4023 11.5801C18.7599 11.7701 19.0359 12.0701 19.23 12.3701C19.6082 12.9901 19.5775 13.7501 19.2096 14.4201L18.4942 15.6201C18.1161 16.2601 17.411 16.6601 16.6854 16.6601C16.3277 16.6601 15.9291 16.5601 15.6021 16.3601C15.3364 16.1901 15.0298 16.1301 14.7028 16.1301C13.691 16.1301 12.8428 16.9601 12.8121 17.9501C12.8121 19.1001 11.8719 20.0001 10.6967 20.0001H9.30683C8.12136 20.0001 7.18116 19.1001 7.18116 17.9501C7.16072 16.9601 6.3125 16.1301 5.30076 16.1301C4.96351 16.1301 4.65693 16.1901 4.40144 16.3601C4.07441 16.5601 3.66563 16.6601 3.31816 16.6601C2.58235 16.6601 1.8772 16.2601 1.49908 15.6201L0.793928 14.4201C0.415804 13.7701 0.395365 12.9901 0.773489 12.3701C0.937002 12.0701 1.24359 11.7701 1.59106 11.5801C1.8772 11.4401 2.06116 11.2101 2.23489 10.9401C2.74587 10.0801 2.43928 8.95009 1.57062 8.44009C0.558878 7.87009 0.231852 6.60009 0.814367 5.61009L1.49908 4.43009C2.09181 3.44009 3.35904 3.09009 4.381 3.67009C5.2701 4.15009 6.42491 3.83009 6.94611 2.98009C7.10962 2.70009 7.2016 2.40009 7.18116 2.10009C7.16072 1.71009 7.27314 1.34009 7.46731 1.04009C7.84543 0.420092 8.53015 0.0200916 9.27617 9.15527e-05H10.7171C11.4734 9.15527e-05 12.1581 0.420092 12.5362 1.04009C12.7202 1.34009 12.8428 1.71009 12.8121 2.10009C12.7917 2.40009 12.8837 2.70009 13.0472 2.98009C13.5684 3.83009 14.7232 4.15009 15.6225 3.67009C16.6343 3.09009 17.9117 3.44009 18.4942 4.43009L19.1789 5.61009C19.7717 6.60009 19.4447 7.87009 18.4227 8.44009C17.554 8.95009 17.2474 10.0801 17.7686 10.9401C17.9322 11.2101 18.1161 11.4401 18.4023 11.5801ZM7.10962 10.0101C7.10962 11.5801 8.40751 12.8301 10.012 12.8301C11.6165 12.8301 12.8837 11.5801 12.8837 10.0101C12.8837 8.44009 11.6165 7.18009 10.012 7.18009C8.40751 7.18009 7.10962 8.44009 7.10962 10.0101Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <span>Settings</span>
+          </li>
+        </ul>
+        <!--END MENU -->
+      </nav>
+      <div class="modal-background hide"></div>
+      <!-- END NAV SIDE BAR -->
+
+      <!-- MAIN -->
+      <div id="main">
+        <!-- HEADER -->
+        <div class="header" id="header">
+          <label for="toggle-nav">
+            <div class="icon">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </label>
+          <input type="checkbox" hidden id="toggle-nav" />
+          <div class="search">
+              <label for="search">
+                <i class="fa-solid fa-magnifying-glass search__icon"></i>
+              </label>
+            <input
+              id="search"
+              type="text"
+              name="search"
+              class="search__box"
+              placeholder="Search"
+            />
+          </div>
+          <div class="user">
+            <div class="user__text">
+              <p class="user__name">Charles Deo</p>
+              <p class="user__logout">Log out</p>
+            </div>
+            <div class="user__img">
+              <img src="./img/user_img.png" alt="Charles Deo" />
+            </div>
+          </div>
+        </div>
+        <!-- END HEADER -->
+
+        <!-- START INFO -->
+        <div class="info">
+          <div class="info__cover">
+            <img src="./img/info_cover.png" alt="People" />
+            <div class="info__edit-cover">Edit Cover Photo</div>
+          </div>
+        </div>
+        <!-- END INFO -->
+
+        <div class="container">
+          <div class="profile">
+            <div class="profile__image">
+              <img src="./img/user_img.png" alt="" />
+            </div>
+            <p class="profile__name">Charles Deo</p>
+            <p class="profile__role">UI/UX Designer</p>
+            <div class="profile__up-image">Upload photo</div>
+          </div>
+          <div class="form">
+            <div class="form__action">
+              <div class="form__cancel">Cancel</div>
+              <div class="form__save">Save</div>
+            </div>
+            <form action="" class="form__container" id="profile-form">
+              <div class="form__input-group">
+                <div class="form__input">
+                  <label for="first-name">First Name</label>
+                  <input
+                    class="form__box"
+                    type="text"
+                    value="Deo"
+                    placeholder="Fill your first name"
+                    id="first-name"
+                    name="firstName"
+                    rules="required"
+                  />
+                  <span class="input__error">This is error!</span>
+                </div>
+                <div class="form__input">
+                  <label for="last-name">Last Name</label>
+                  <input
+                    class="form__box"
+                    type="text"
+                    value="Charles"
+                    placeholder="Fill your last name"
+                    id="last-name"
+                    name="lastName"
+                    rules="required"
+                  />
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input">
+                  <label for="role">Title</label>
+                  <input
+                    class="form__box"
+                    type="text"
+                    value="UI/UX Designer"
+                    placeholder="Fill your title"
+                    id="role"
+                    name="role"
+                    rules="required"
+                  />
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input radio">
+                  <label>Gender</label>
+                  <div class="radio-container">
+                    <label for="gender" class="input__desc">
+                      <input
+                        class="form__radio"
+                        type="radio"
+                        value="male"
+                        id="gender"
+                        name="gender"
+                        checked
+                        rules="required"
+                      />
+                      <span>Gender</span>
+                    </label>
+                    <label for="female" class="input__desc">
+                      <input
+                        class="form__radio"
+                        type="radio"
+                        value="female"
+                        id="female"
+                        name="gender"
+                        rules="required"
+                      />
+                      <span>Female</span>
+                    </label>
+                    <label for="other" class="input__desc">
+                      <input
+                        class="form__radio"
+                        type="radio"
+                        value="other"
+                        id="other"
+                        name="gender"
+                        rules="required"
+                      />
+                      <span>Other</span>
+                    </label>
+                  </div>
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input" id="input-calendar">
+                  <label for="birthday">Birthday</label>
+                  <div class="form__box birthday" name="birthday">
+                    <input
+                      hidden
+                      type="date"
+                      name="birthday"
+                      id="birthday"
+                      rules="required"
+                      value="1980-06-26"
+                    />
+                    <span></span>
+                    <svg
+                      class="active"
+                      width="18"
+                      height="20"
+                      viewBox="0 0 18 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M16 2H15V0H13V2H5V0H3V2H2C0.89 2 0 2.9 0 4V18C0 19.1 0.89 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM16 18H2V7H16V18ZM3.5 11C3.5 9.62 4.62 8.5 6 8.5C7.38 8.5 8.5 9.62 8.5 11C8.5 12.38 7.38 13.5 6 13.5C4.62 13.5 3.5 12.38 3.5 11Z"
+                        fill="#A303A0"
+                      />
+                    </svg>
+                  </div>
+                  <div class="calendar calendar--hide">
+                    <p class="calendar__format">MM/DD/YYYY</p>
+                    <div class="calendar__wrapper">
+                      <header>
+                        <div class="select-group month">
+                          <i
+                            class="fa-sharp fa-solid fa-angle-left setting-month"
+                          ></i>
+                          <div class="wrapper">
+                            <div class="select selected-item">
+                              <span>Select item</span>
+                              <i class="fa-solid fa-caret-down toggle"></i>
+                            </div>
+                            <div class="drop-list drop-list--hide">
+                              <div class="option">Item1</div>
+                              <div class="option option--selected">Item2</div>
+                              <div class="option">Item3</div>
+                            </div>
+                          </div>
+                          <i
+                            class="fa-sharp fa-solid fa-angle-right setting-month"
+                          ></i>
+                        </div>
+                        <div class="select-group year">
+                          <i
+                            class="fa-sharp fa-solid fa-angle-left setting-year"
+                          ></i>
+                          <div class="wrapper">
+                            <div class="select selected-item">
+                              <span>Select item</span>
+                              <i class="fa-solid fa-caret-down toggle"></i>
+                            </div>
+                            <div class="drop-list drop-list--hide">
+                              <div class="option">Item1</div>
+                              <div class="option option--selected">Item2</div>
+                              <div class="option">Item3</div>
+                            </div>
+                          </div>
+                          <i
+                            class="fa-sharp fa-solid fa-angle-right setting-year"
+                          ></i>
+                        </div>
+                      </header>
+                      <div class="calendar__space">
+                        <ul class="weeks">
+                          <li>S</li>
+                          <li>M</li>
+                          <li>T</li>
+                          <li>W</li>
+                          <li>T</li>
+                          <li>F</li>
+                          <li>S</li>
+                        </ul>
+                        <ul class="days"></ul>
+                      </div>
+                      <div class="calendar__action">
+                        <span class="calendar__cancel">Cancel</span>
+                        <span class="calendar__ok">OK</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input">
+                  <label for="address">Address</label>
+                  <input
+                    class="form__box"
+                    type="text"
+                    value="2239 Hog Camp Road, Schaumburg"
+                    placeholder="Fill your address"
+                    id="address"
+                    name="address"
+                    rules="required"
+                  />
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input">
+                  <label for="email">Email</label>
+                  <input
+                    class="form__box"
+                    type="email"
+                    value="charles5182@ummoh.com"
+                    placeholder="Fill your email"
+                    id="email"
+                    name="email"
+                    rules="required email"
+                  />
+                  <span class="input__error"></span>
+                </div>
+              </div>
+              <div class="form__input-group">
+                <div class="form__input">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    class="form__box"
+                    type="text"
+                    value="33757005467"
+                    placeholder="Fill your phone"
+                    id="phone"
+                    name="phone"
+                    rules="required phone"
+                  />
+                  <span class="input__error"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- END MAIN -->
+      <!-- <div id="switch">
+        <i class="fa-solid fa-rotate"></i>
+      </div> -->
+    </div>
+  </body>
+</html>

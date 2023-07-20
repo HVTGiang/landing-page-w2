@@ -1,0 +1,22 @@
+/*
+    Main content in the web
+*/
+
+@use "color" as *;
+@use "header";
+@use "info";
+@use "content";
+
+#main {
+  flex: 1;
+  background-color: $grey;
+  padding: 20px 32px 0;
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 0px 0;
+  }
+  @media screen and (max-width: 415px) {
+    padding: 8px 0 0 0 ;
+  }
+}

@@ -1,0 +1,174 @@
+@use "color" as *;
+.calendar {
+  width: 360px;
+  position: absolute;
+  top: 100%;
+  z-index: 999;
+
+  &__format {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: $calendar49;
+    margin: 4px 16px 8px;
+  }
+
+  &__wrapper {
+    background-color: $calendarEC;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 4px;
+  }
+
+  .select-group {
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    .wrapper.active {
+      .select i {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    & > i {
+      padding: 14px 16px;
+      color: $calendar49;
+    }
+
+    .select {
+      padding: 10px 8px;
+      color: $calendar49;
+      font-size: 1.4rem;
+      font-weight: 500;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 1rem;
+        color: $calendar49;
+        margin-left: 8px;
+        padding: 7px 5px;
+        transform: rotateZ(0deg);
+        transition: all ease 0.2s;
+      }
+    }
+
+    .drop-list {
+      background-color: $grey300;
+      border-radius: 8px;
+      box-shadow: 0 0 5px 0.5px $grey200;
+      overflow-y: scroll;
+      position: absolute;
+      width: 200px;
+      height: 300px;
+      scroll-behavior: smooth;
+      .option {
+        padding: 8px;
+        background-color: $white;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .option:hover {
+        background-color: $grey200;
+      }
+
+      .option--selected {
+        background-color: $purpleA3;
+        color: $white;
+      }
+
+      .option--selected:hover {
+        background-color: $purple49;
+        color: $white;
+      }
+    }
+
+    .drop-list--hide {
+      display: none;
+    }
+  }
+
+  &__space {
+    padding: 0 12px 4px;
+    ul {
+      display: flex;
+      list-style-type: none;
+      flex-wrap: wrap;
+      color: $calendar1D;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    li {
+      width: calc(100% / 7);
+      text-align: center;
+      padding: 13px 10px;
+    }
+
+    .days li {
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
+    .days li::before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      transition: all ease 0.1s;
+    }
+
+    .days li:hover::before {
+      background-color: $grey300;
+    }
+
+    .days li.inactive {
+      color: $calendar49;
+    }
+
+    .days li.active {
+      color: $white;
+    }
+    .days li.active::before {
+      background-color: $purpleA3;
+    }
+  }
+
+  &__action {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  &__cancel,
+  &__ok {
+    padding: 10px 12px;
+    color: $grey400;
+    font-weight: 500;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  &__ok {
+    color: $purpleA3;
+  }
+}
+
+.calendar--hide {
+  display: none;
+}

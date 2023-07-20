@@ -1,0 +1,125 @@
+@use "color" as *;
+@use "user_image" as *;
+#header.header {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    padding-right: 16px;
+    align-items: center;
+  }
+
+  .icon {
+    width: 62px;
+    height: 62px;
+    padding: 16px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    // background-color: $white;
+    border-radius: 50%;
+    // margin-right: 12px;
+    i {
+      display: block;
+      font-size: 2.4rem;
+      color: $grey600;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  .search {
+    position: relative;
+    flex-grow: 1;
+
+    &__box {
+      width: 100%;
+      border: none;
+      background-color: $white;
+      border-radius: 5px;
+      height: 62px;
+      padding: 23px;
+      padding-left: 47px;
+      transition: all ease 0.2s;
+      font: {
+        size: 1.2rem;
+        weight: 400;
+      }
+      &::placeholder {
+        opacity: 0.7;
+        color: $purple49;
+      }
+    }
+
+    &__icon {
+      font-size: 1.4rem;
+      color: $purple49;
+      position: absolute;
+      top: 24px;
+      left: 23px;
+    }
+
+    @media screen and (max-width: 415px) {
+      .search__box {
+        border-radius: 100px;
+        height: 50px;
+        padding: 10px;
+        padding-left: 40px;
+        width: 50px;
+      }
+
+      .search__box:focus {
+        width: 100%;
+      }
+
+      .search__icon {
+        padding: 5px;
+        top: 50%;
+        left: 23px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.user {
+  display: flex;
+  color: $purple49;
+  margin-left: 32px;
+
+  &__img {
+    margin-left: 12px;
+    flex: 0 60px;
+    @include userImage($orange) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      margin: 0;
+    }
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &__logout {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  @media screen and (max-width: 415px) {
+    margin-left: 26px;
+  }
+}
